@@ -1,5 +1,10 @@
 import {
   ChakraProvider,
+  Heading,
+  HStack,
+  Image,
+  Text,
+  VStack
 } from "@chakra-ui/react"
 import { Navbar } from "./components/navbar"
 
@@ -7,11 +12,6 @@ import { extendTheme } from '@chakra-ui/react'
 
 // example theme
 const theme = extendTheme({
-  fonts: {
-    body: "system-ui, sans-serif, Open Sans, Poppins, Roboto",
-    heading: "Poppins",
-    mono: "Menlo, monospace",
-  },
   fontSizes: {
     xs: "0.75rem",
     sm: "0.875rem",
@@ -68,5 +68,37 @@ const theme = extendTheme({
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Navbar/>
+    
+    <HStack
+      justifyContent="space-between"
+      mx={48}
+      mt={24}
+    >
+      <VStack>
+        <Heading
+          maxW={500}
+          size="3xl"
+          textAlign="left"
+          mb={4}
+        >
+          <Text colorScheme="blackAlpha" pr={4} bg="blackAlpha.400" as="span">Mallspaw</Text> 
+          is an e-commerce prototyping API
+        </Heading>
+        <Text
+          maxW={500} 
+        >
+          Create a fake store, add some products and fetch the data with Mallspawn API.
+        </Text>
+      </VStack>
+     <Image
+        objectFit="contain"
+        mt={30}
+        ml={300}
+        maxW="200"
+        src='/images/hero.svg'
+        alt='Dan Abramov'
+      />
+    </HStack>
+  
   </ChakraProvider>
 )
