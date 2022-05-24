@@ -87,7 +87,7 @@ export const App = () => (
         <Text
           maxW={500} 
         >
-          Create a fake store, add some products and fetch the data with Mallspawn API.
+          Create a store, add some products and fetch the data with Mallspawn API.
         </Text>
       </VStack>
      <Image
