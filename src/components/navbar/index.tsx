@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "../../ColorModeSwitcher"
 
+
 interface NavbarLink {
     Route: string,
     Text: string

@@ -1,4 +1,5 @@
 import {
+  Box,
   ChakraProvider,
   Heading,
   HStack,
@@ -7,8 +8,9 @@ import {
   VStack
 } from "@chakra-ui/react"
 import { Navbar } from "./components/navbar"
-
 import { extendTheme } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
+
 
 // example theme
 const theme = extendTheme({
@@ -65,8 +67,9 @@ const theme = extendTheme({
   },
 });
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
+
+export const App = () => {
+  return(<ChakraProvider theme={theme}>
     <Navbar/>
     
     <HStack
@@ -90,15 +93,26 @@ export const App = () => (
           Create a store, add some products and fetch the data with Mallspawn API.
         </Text>
       </VStack>
-     <Image
-        objectFit="contain"
-        mt={30}
-        ml={300}
-        maxW="200"
-        src='/images/hero.svg'
-        alt='Dan Abramov'
-      />
-    </HStack>
+      
+      <Box
+          as={motion.div}
+          animate={{ x: [150, 0, 10], opacity: [0, 1]}}
+          transition={{ "ease": "easeIn"}}
+          drag='x'
+          dragConstraints={{ left: -100, right: 100 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          // not work: transition={{ transition: "0.5", ease: "linear" }>
+          >
+        <Image
+            objectFit="contain"
+            maxW="200"
+            src='/images/hero.svg'
+            alt='Dan Abramov'
+          />
+    
+      </Box>
+   </HStack>
   
-  </ChakraProvider>
-)
+  </ChakraProvider>)
+}
