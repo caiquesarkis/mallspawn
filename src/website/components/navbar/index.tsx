@@ -1,18 +1,10 @@
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-  HStack,
   Button,
   Flex,
-  Heading,
 } from "@chakra-ui/react"
-import { ColorModeSwitcher } from "../../ColorModeSwitcher"
-
+import { ColorModeSwitcher } from "../../../ColorModeSwitcher";
+import { Link } from "react-router-dom";
 
 interface NavbarLink {
     Route: string,
@@ -23,8 +15,7 @@ const NavbarLinks = (props: NavbarLink) => {
     const {Route, Text} = props;
     return(
         <Link 
-            href={Route}
-            target="_blank"
+            to={Route}
             rel="noopener noreferrer"
             style={{"textDecoration": "none"}}
             >
@@ -32,9 +23,9 @@ const NavbarLinks = (props: NavbarLink) => {
                 px={8}
                 py={4}
                 size="4xl"
-                colorScheme='teal' 
+                colorScheme='whiteAlpha' 
                 variant='ghost'
-                color="teal.500"
+                color="whiteAlpha.800"
             >
                 {Text}
             </Button>
@@ -46,22 +37,23 @@ const NavbarCTA = (props: NavbarLink) => {
     const {Route, Text} = props;
     return(
         <Link 
-            href={Route}
-            target="_blank"
+            to={Route}
             rel="noopener noreferrer"
             style={{"textDecoration": "none"}}
             >
             <Button
                 px={8}
                 py={4}
-                size="4xl"
-                colorScheme='teal' 
-                variant='outline'
-                color="teal.500"
                 ml={12}
+                size="4xl"
+                fontSize="xm"
+                colorScheme='green' 
+                variant='outline'
+                color="green.100"
                 border="2px"
             >
                 {Text}
+                <ArrowForwardIcon ml={2}/>
             </Button>
         </Link>
     )
@@ -76,8 +68,7 @@ export const Navbar = () => {
             mx={16}
         >
             <Link 
-                href="/"
-                target="_blank"
+                to="/"
                 rel="noopener noreferrer"
                 style={{"textDecoration": "none"}}
             >
@@ -99,10 +90,10 @@ export const Navbar = () => {
                 w='40%'
                 gap={2}
             >
-                <NavbarLinks Route="#" Text="Learn"/>
-                <NavbarLinks Route="#" Text="Documentation"/>
-                <NavbarLinks Route="#" Text="Examples"/>
-                <NavbarCTA Route="#" Text="My Store"/>
+                <NavbarLinks Route="/learn" Text="Learn"/>
+                <NavbarLinks Route="/documentation" Text="Documentation"/>
+                <NavbarLinks Route="/examples" Text="Examples"/>
+                <NavbarCTA Route="/store" Text="My Store"/>
             </Flex>
             <ColorModeSwitcher justifySelf="flex-end" />
         </Flex>
