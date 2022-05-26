@@ -1,8 +1,58 @@
-import { Box, HStack, Text, List, ListIcon, ListItem, VStack, Button, Icon, Heading, Divider } from "@chakra-ui/react";
+import { Box, HStack, Text, List, ListIcon, ListItem, VStack, Button, Icon, Heading, Divider, Select } from "@chakra-ui/react";
 import { FiArchive, FiBox, FiHome, FiSettings } from "react-icons/fi";
 import { IconType } from "react-icons/lib";
 import { Link } from "react-router-dom";
 import { Avatar } from '@chakra-ui/react'
+import './index.css'
+
+export function Menu(){
+    return(
+        <HStack 
+        >            
+           <VStack bg='gray.900' minW='250px' p={8} minH="100vh" color='black' display='flex' justifyContent='space-between'>
+                <Link 
+                    to="/"
+                    rel="noopener noreferrer"
+                    style={{"textDecoration": "none"}}
+                >
+                    <Button
+                        color="blue.50"
+                        colorScheme='blue'
+                        mt={8}
+                        variant='ghost'
+                        fontSize="xl"
+                        letterSpacing={6}
+                        textAlign='center'
+                    >
+                        Mallspawn
+                    </Button>
+                </Link>
+                
+                <List minW='100%' spacing={4}>
+                    <MenuLink icon={FiHome} route="/store" text="Home"/> 
+                    <MenuLink icon={FiArchive} route="/store" text="Products"/> 
+                    <MenuLink icon={FiBox} route="/store" text="Collections"/> 
+                    <Divider borderColor='gray.500'/>
+                    <ConfigButton icon={FiSettings} route="settings" text="Configuration"/> 
+                </List>
+                <StoreSwitcher/> 
+                <CostumerAvatar route="account" costumerName="Caique Sarkis" src="https://pbs.twimg.com/profile_images/1420483313849016321/fJ856PK9_400x400.jpg"/> 
+           </VStack>
+        </HStack>
+        
+    )
+}
+
+const StoreSwitcher = () =>{
+    return(
+        <Select maxW="80%" bg="transparent" color="gray.400" variant="filled" placeholder='Mechdevil'>
+            <option value='option1'>Option 1</option>
+            <option value='option2'>Option 2</option>
+            <option value='option3'>Option 3</option>
+        </Select>
+    )
+}
+
 interface menuLink{
     route: string,
     text: string,
@@ -62,42 +112,5 @@ const CostumerAvatar = (props: {route: string, costumerName:string,  src: string
                 <Avatar size='md' bg='transparent'  name={costumerName} src={src} />
             </Link>
         </Box>
-    )
-}
-
-export function Menu(){
-    return(
-        <HStack 
-        >            
-           <VStack bg='gray.900' minW='250px' p={8} minH="100vh" color='black' display='flex' justifyContent='space-between'>
-                <Link 
-                    to="/"
-                    rel="noopener noreferrer"
-                    style={{"textDecoration": "none"}}
-                >
-                    <Button
-                        color="blue.50"
-                        colorScheme='blue'
-                        mt={8}
-                        variant='ghost'
-                        fontSize="1.2rem"
-                        letterSpacing={6}
-                        textAlign='center'
-                    >
-                        Mallspawn
-                    </Button>
-                </Link>
-                <List minW='100%' spacing={4}>
-                    <MenuLink icon={FiHome} route="/store" text="Home"/> 
-                    <MenuLink icon={FiArchive} route="/store" text="Products"/> 
-                    <MenuLink icon={FiBox} route="/store" text="Collections"/> 
-                    <Divider borderColor='gray.500'/>
-                    <ConfigButton icon={FiSettings} route="settings" text="Configuration"/> 
-                </List>
-                
-                <CostumerAvatar route="account" costumerName="Caique Sarkis" src="https://pbs.twimg.com/profile_images/1420483313849016321/fJ856PK9_400x400.jpg"/> 
-           </VStack>
-        </HStack>
-        
     )
 }

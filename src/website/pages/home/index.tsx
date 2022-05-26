@@ -58,7 +58,7 @@ export default function Home(){
           lineHeight={1.1}
         >
           <Text colorScheme="blackAlpha" pr={4} bg="blackAlpha.400" as="span">Mallspaw</Text> 
-          is an <span style={{"textDecoration": "underline", "color": "#B794F4"}}>e-commerce</span>  CMS focused on simplicity.
+          is an <span style={{"textDecoration": "underline", "color": "#B794F4"}}>e-commerce CMS</span> focused on simplicity.
         </Heading>
         <Text textColor='gray.300' maxW={500}>
           Create a store, add some products and fetch the data with Mallspawn Store Front API.

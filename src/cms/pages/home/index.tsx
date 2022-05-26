@@ -1,5 +1,6 @@
-import { Box, HStack, Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Heading, HStack, Stat, StatGroup, StatLabel, StatNumber, Text } from "@chakra-ui/react";
 import { Menu } from "../../components/Menu";
+
 
 export default function Store(){
     return(
@@ -14,8 +15,12 @@ export default function Store(){
                 flexDirection='column'
                 justifyContent='center'
                 alignItems='center'
+                gap={24}
             >
-                <ProductList/>
+            <Heading size="2xl" color="gray.400" fontWeight={400}>
+                Wellcome back <Text color="gray.200" as='span'>{"Caique Sarkis"}</Text>
+            </Heading>
+            <Statistics/>
             </Box>
         </HStack>
     )
@@ -23,43 +28,17 @@ export default function Store(){
 
 
 
-const ProductList = () =>{
+let Statistics = () =>{
     return(
-        <TableContainer w='80%'>
-            <Table variant='striped' colorScheme='teal'>
-                <TableCaption>Imperial to metric conversion factors</TableCaption>
-                <Thead>
-                <Tr>
-                    <Th>To convert</Th>
-                    <Th>into</Th>
-                    <Th isNumeric>multiply by</Th>
-                </Tr>
-                </Thead>
-                <Tbody>
-                <Tr>
-                    <Td>inches</Td>
-                    <Td>millimetres (mm)</Td>
-                    <Td isNumeric>25.4</Td>
-                </Tr>
-                <Tr>
-                    <Td>feet</Td>
-                    <Td>centimetres (cm)</Td>
-                    <Td isNumeric>30.48</Td>
-                </Tr>
-                <Tr>
-                    <Td>yards</Td>
-                    <Td>metres (m)</Td>
-                    <Td isNumeric>0.91444</Td>
-                </Tr>
-                </Tbody>
-                <Tfoot>
-                <Tr>
-                    <Th>To convert</Th>
-                    <Th>into</Th>
-                    <Th isNumeric>multiply by</Th>
-                </Tr>
-                </Tfoot>
-            </Table>
-        </TableContainer>
+        <StatGroup  gap={36}>
+        <Stat >
+            <StatLabel>Products</StatLabel>
+            <StatNumber>42</StatNumber>
+        </Stat>
+        <Stat>
+            <StatLabel>Collections</StatLabel>
+            <StatNumber>5</StatNumber>
+        </Stat>
+        </StatGroup>
     )
 }

@@ -78,7 +78,7 @@ export const Navbar = () => {
                     colorScheme='blue'
                     variant='ghost'
                     mr={12}
-                    fontSize="1.5rem"
+                    fontSize="xl"
                     letterSpacing={6}
                 >
                     Mallspawn
