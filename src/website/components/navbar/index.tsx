@@ -23,9 +23,10 @@ const NavbarLinks = (props: NavbarLink) => {
                 px={8}
                 py={4}
                 size="4xl"
-                colorScheme='whiteAlpha' 
+                colorScheme='gray' 
                 variant='ghost'
-                color="whiteAlpha.800"
+                color="gray.300"
+                fontWeight={400}
             >
                 {Text}
             </Button>
@@ -47,9 +48,9 @@ const NavbarCTA = (props: NavbarLink) => {
                 ml={12}
                 size="4xl"
                 fontSize="xm"
-                colorScheme='green' 
+                colorScheme='purple' 
                 variant='outline'
-                color="green.100"
+                color="purple.200"
                 border="2px"
             >
                 {Text}

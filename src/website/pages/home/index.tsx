@@ -13,22 +13,21 @@ export default function Home(){
         return(
             <Link
                 href={Route}
-                target="_blank"
                 rel="noopener noreferrer"
                 style={{"textDecoration": "none"}}
                 alignSelf="flex-start"
                 >
                 <Button
                     as={motion.div}
-                    animate={{ x: [150, 0, 10], opacity: [0, 1]}}
+                    animate={{ x: [150, 0, 0], opacity: [0, 1]}}
                     transition={{ "ease": "easeIn"}}
                     mt={4}
                     px={8}
                     py={4}
                     size="4xl"
-                    colorScheme='whiteAlpha' 
-                    variant='outlined'
-                    color="whiteAlpha.900"
+                    colorScheme='gray' 
+                    variant='ghost'
+                    color="gray.100"
                     border="2px"
                 >
                 {Text}
@@ -40,8 +39,10 @@ export default function Home(){
     return(
         <HStack
             justifyContent="space-between"
+            // Adicionar breaking points no mx
             mx={48}
             mt={24}
+            gap={32}
         >
       <VStack
         as={motion.div}
@@ -50,15 +51,17 @@ export default function Home(){
         >
         <Heading
           maxW={500}
-          size="3xl"
+          size="2xl"
           textAlign="left"
           mb={4}
+          fontWeight={700}
+          lineHeight={1.1}
         >
           <Text colorScheme="blackAlpha" pr={4} bg="blackAlpha.400" as="span">Mallspaw</Text> 
-          is an e-commerce prototyping API
+          is an <span style={{"textDecoration": "underline", "color": "#B794F4"}}>e-commerce</span>  CMS focused on simplicity.
         </Heading>
-        <Text maxW={500}>
-          Create a store, add some products and fetch the data with Mallspawn API.
+        <Text textColor='gray.300' maxW={500}>
+          Create a store, add some products and fetch the data with Mallspawn Store Front API.
         </Text>
         <HeroCTA 
           Route="#" 
