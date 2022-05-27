@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Avatar } from '@chakra-ui/react'
 import './index.css'
 
-export function Menu(){
+export function SideBar(){
     return(
         <HStack 
         >            

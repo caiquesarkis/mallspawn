@@ -1,11 +1,11 @@
 import { Box, Heading, HStack, Text } from "@chakra-ui/react";
-import { Menu } from "../../components/Menu";
+import { SideBar } from "../../components/sidebar";
 
 
 export default function Collections(){
     return(
         <HStack >
-            <Menu/>
+            <SideBar/>
             <Box
                 style={{"marginLeft": "0px"}}
                 bg='gray.800'
