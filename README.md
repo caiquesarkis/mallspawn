@@ -1,59 +1,78 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# Mallspawn
+Mallspawis an
+e-commerce CMS focused on simplicity. Create a store, add some products and fetch the data with Mallspawn Store Front API.
 
-## Available Scripts
+## Brainstorm
+### Funcionalidades do cms
+Cadastro de produtos
+Coleções
+Seção de artigos(Blog, dúvidas, etc) Seção focada em adicionar conteúdo de texto sem precisar adicionar no código
+Configurações gerais da loja
 
-In the project directory, you can run:
+## Talvez
+- Dashboard
+- Site sobre o cms, documentação da api e tutoriais de integrações com aplicativos terceiros.
 
-### `npm start`
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tasks
+#Tasks 
+- [x] API 
+	- [ ] Desenvolver api CRUD para produtos com banco de dados
+		- [x] Configuração inicial da api e criação do respositório
+		- [x] Planejamento da database para criação de loja e cadastro de produtos
+		- [x] Integração da database com a api
+		- [x] Criação das tabelas do planejamento em SQL
+		- [x] Interação dos endpoints com a database
+		- [ ] API Endpoints
+			- [x] GET
+				- [x] Shop Owners
+				- [x] Stores
+				- [x] Products
+			- [x] POST
+				- [x] Create new account
+				- [x] Login
+				- [x] Logout
+				- [x] Create store
+				- [x] Add product
+			- [ ] DELETE
+				- [ ] Products
+				- [ ] Shop Owners
+				- [ ] Stores
+			- [ ] PUT
+				- [ ] Products
+	- [ ] Hostear api em cloud
+	- [ ] Implementar sistema de autenticação com o Passaport.js
+	- [ ] Implementar e integrar design a api
+	- [ ] Escrever documentação 
+	- [ ] Configurações gerais da loja
+		- [ ] Implementação das novas rotas para configuração da loja na api
+		- [ ] Escrever documentação 
+- [ ] CMS
+	- [ ] Landing page
+		- [ ] Navbar
+		- [ ] Hero
+			- [ ] Claim
+			- [ ] Ilustration
+			- [ ] Add animation where itens come from the sides with framer
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+## Resorces
+**Links and notes that contribute to this project**
+- [Design](https://www.figma.com/file/fw4fMMrNWkHwMHlWop44rh/Untitled?node-id=0%3A1)
+- [Database Planning](https://whimsical.com/mallspawn-GqgVNZpYeHbkbdcu7oZiuC)
+- [MySQL database download](https://dev.mysql.com/downloads/file/?id=511552)
+- [MySQL integration with node](https://github.com/sidorares/node-mysql2)
+- [SQL Cheat Sheet](https://devhints.io/mysql)
+- [Authentication](https://www.passportjs.org/)
+- [Typescript setup](https://blog.appsignal.com/2022/01/19/how-to-set-up-a-nodejs-project-with-typescript.html)
+- [Basic login system with express](https://codeshack.io/basic-login-system-nodejs-express-mysql/)
+- [Forms with express node api](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms)
+- [website-color-schemes](https://visme.co/blog/website-color-schemes/)
+- [Ilustrations](https://undraw.co/search)
+- [Chakra UI Framework](https://chakra-ui.com/)
+- [Dashboard inspiration (Made with Chakra UI)](https://github.com/bjcarlson42/chakra-nextjs-dashboard)
+- [Framer Motion](https://www.framer.com/docs)
+- [React Icons](https://react-icons.github.io/react-icons/icons?name=fi)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
-
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Dia de criação
+[[2022_05_21]]
