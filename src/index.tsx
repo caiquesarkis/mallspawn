@@ -16,6 +16,10 @@ import {
 } from "@chakra-ui/react"
 import { extendTheme } from '@chakra-ui/react'
 import Home from "./website/pages/home";
+import Products from "./cms/pages/products"
+import Collections from "./cms/pages/collections"
+import Settings from "./cms/pages/settings"
+import Account from "./cms/pages/account"
 
 // example theme
 const theme = extendTheme({
@@ -108,6 +112,10 @@ root.render(
             </>
           } />
         <Route path="store" element={<Store />} />
+        <Route path="store/products" element={<Products />} />
+        <Route path="store/collections" element={<Collections />} />
+        <Route path="store/settings" element={<Settings />} />
+        <Route path="store/account" element={<Account />} />
       </Routes>
       </BrowserRouter>
     </ChakraProvider>

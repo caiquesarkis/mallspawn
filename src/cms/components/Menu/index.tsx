@@ -30,13 +30,13 @@ export function Menu(){
                 
                 <List minW='100%' spacing={4}>
                     <MenuLink icon={FiHome} route="/store" text="Home"/> 
-                    <MenuLink icon={FiArchive} route="/store" text="Products"/> 
-                    <MenuLink icon={FiBox} route="/store" text="Collections"/> 
+                    <MenuLink icon={FiArchive} route="/store/products" text="Products"/> 
+                    <MenuLink icon={FiBox} route="/store/collections" text="Collections"/> 
                     <Divider borderColor='gray.500'/>
-                    <ConfigButton icon={FiSettings} route="settings" text="Configuration"/> 
+                    <ConfigButton icon={FiSettings} route="/store/settings" text="Configuration"/> 
                 </List>
                 <StoreSwitcher/> 
-                <CostumerAvatar route="account" costumerName="Caique Sarkis" src="https://pbs.twimg.com/profile_images/1420483313849016321/fJ856PK9_400x400.jpg"/> 
+                <CostumerAvatar route="/store/account" costumerName="Caique Sarkis" src="https://pbs.twimg.com/profile_images/1420483313849016321/fJ856PK9_400x400.jpg"/> 
            </VStack>
         </HStack>
         
@@ -67,8 +67,8 @@ const MenuLink = (props: menuLink) =>{
             alignItems='center'
             justifyContent='flex-start'
         >
-            <Button variant="outline" justifyContent='flex-start'  border='2px' minW="100%" borderColor='gray.300'>
-                <Link style={{"display":"flex", "alignItems": "center"}} to={route}>
+            <Link style={{"display":"flex", "alignItems": "center"}} to={route}>
+                <Button variant="outline" justifyContent='flex-start'  border='2px' borderColor='gray.300'>
                     <ListIcon as={icon} fontSize="xl" color='gray.300'/>
                     <Text 
                         as="span" 
@@ -77,8 +77,8 @@ const MenuLink = (props: menuLink) =>{
                         color='gray.300'>
                         {text}
                     </Text>
-                </Link>
-            </Button>
+                </Button>
+            </Link>
            
         </ListItem>
     )
@@ -87,8 +87,8 @@ const MenuLink = (props: menuLink) =>{
 const ConfigButton = (props: menuLink) =>{
     const {route, text, icon} = props;
     return(
-        <Button variant="outline" justifyContent='flex-start'  border='2px' minW="100%" borderColor='gray.300'>
-            <Link style={{"display":"flex", "alignItems": "center"}} to={route}>
+        <Link style={{"display":"flex", "alignItems": "center"}} to={route}>
+            <Button variant="outline" justifyContent='flex-start'  border='2px' borderColor='gray.300'>
                 <Icon as={icon} fontSize="xl" mr="8px" color='gray.300'/>
                 <Text 
                     as="span" 
@@ -97,8 +97,8 @@ const ConfigButton = (props: menuLink) =>{
                     color='gray.300'>
                     {text}
                 </Text>
-            </Link>
-        </Button>
+            </Button>
+        </Link>
     )
 }
 
