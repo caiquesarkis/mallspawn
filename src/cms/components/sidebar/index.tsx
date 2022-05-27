@@ -35,8 +35,8 @@ export function SideBar(){
                     <Divider borderColor='gray.500'/>
                     <ConfigButton icon={FiSettings} route="/store/settings" text="Configuration"/> 
                 </List>
-                <StoreSwitcher/> 
                 <CostumerAvatar route="/store/account" costumerName="Caique Sarkis" src="https://pbs.twimg.com/profile_images/1420483313849016321/fJ856PK9_400x400.jpg"/> 
+                <StoreSwitcher/> 
            </VStack>
         </HStack>
         
@@ -109,7 +109,7 @@ const CostumerAvatar = (props: {route: string, costumerName:string,  src: string
             justifySelf="flex-end"
         >
             <Link  to={route}>
-                <Avatar size='md' bg='transparent'  name={costumerName} src={src} />
+                <Avatar size='lg' bg='transparent'  name={costumerName} src={src} />
             </Link>
         </Box>
     )
