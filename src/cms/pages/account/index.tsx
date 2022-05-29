@@ -1,4 +1,5 @@
 import { Box, Heading, HStack, Text } from "@chakra-ui/react";
+import PageHeader from "../../components/PageHeader";
 import { SideBar } from "../../components/sidebar";
 
 
@@ -17,9 +18,7 @@ export default function Account(){
                 alignItems='center'
                 gap={24}
             >
-            <Heading size="2xl" color="gray.400" fontWeight={400}>
-                Account
-            </Heading>
+            <PageHeader/>
             </Box>
         </HStack>
     )

@@ -1,8 +1,9 @@
-import { Menu, Badge, Box, Button, Divider, Heading, HStack, Icon, Image, Input, Table, Tbody, Td, Text, Tfoot, Th, Thead, Tr, VStack, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { Menu, Badge, Box, Button, Divider, Heading, HStack, Icon, Image, Input, Table, Tbody, Td, Text, Tfoot, Th, Thead, Tr, VStack, MenuButton, MenuList, MenuItem, DrawerOverlay, DrawerContent, Drawer, DrawerCloseButton, DrawerHeader, DrawerBody, FormControl, FormLabel, FormHelperText, Editable, EditablePreview, EditableTextarea, Textarea, Switch, RadioGroup, Radio } from "@chakra-ui/react";
 import { useState } from "react";
 import { FiSettings } from "react-icons/fi";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import { SideBar } from "../../components/sidebar";
+import PageHeader from "../../components/PageHeader";
+import { useDisclosure } from '@chakra-ui/react'
 
 export default function Products(){
     return(
@@ -25,8 +26,6 @@ export default function Products(){
     )
 }
 
-
-
 const ProductPage = () =>{
     const [products, setProducts] = useState([
         {
@@ -46,11 +45,8 @@ const ProductPage = () =>{
         }
     ]);
     return(
-        <VStack w="80%" minH="100%" flexDirection="column" justifyContent="space-around" alignItems="center">
-            <Heading  size="2xl" color="gray.400" fontWeight={400}>
-                    Products
-            </Heading>
-            <Divider/>
+        <VStack w="80%" minH="100%" flexDirection="column" alignItems="center">
+            <PageHeader/> 
             <ProductSearchInput/>
             <ProductTable Products={products} />
         </VStack>
@@ -58,24 +54,18 @@ const ProductPage = () =>{
     )
 }
 
-
 interface Product{
     name: string,
     status: boolean,
     collection: string
 }
 
-
-
-
-
-
-
 function ProductSearchInput() {
   const [value, setValue] = useState('')
   const handleChange = (e: any) => setValue(e.target.value)
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
+      <>
     <HStack w="100%" minH="50px">
       <Input
         colorScheme="gray" 
@@ -98,27 +88,82 @@ function ProductSearchInput() {
           Search
       </Button>
         <Button
-            colorScheme="green" 
+            colorScheme="alphaBlack" 
             h="100%"
             value={value}
-            textColor="green.200"
+            textColor="green.100"
             border="2px"
-            variant="ghost"
+            variant="solid"
             px="24px"
+            onClick={onOpen}
         >
           New Product
         </Button>
     </HStack>
+    <Drawer onClose={onClose} isOpen={isOpen} size="sm">
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>New Product</DrawerHeader>
+          <DrawerBody>
+            <FormControl>
+                <Box mb={4}>
+                    <FormLabel htmlFor='name'>Product Name*</FormLabel>
+                    <Input id='name' type='text' placeholder="Keyboard X5l Bluetooth..."/>
+                </Box>
+                
+                <Box mb={4}>
+                    <FormLabel htmlFor='description'>Description*</FormLabel>
+                    <Textarea id='description' placeholder='This product have such features...' />
+                </Box>
+                
+                <Box mb={4}>
+                    <FormLabel as='legend'>Status*</FormLabel>
+                    <RadioGroup defaultValue='Draft'>
+                        <HStack spacing='24px'>
+                            <Radio value='Draft'>
+                                <Badge variant='solid' px={2} py={1} colorScheme='blue'> Draft </Badge>
+                            </Radio>
+                            <Radio value='Active'>
+                                <Badge variant='solid' px={2} py={1} colorScheme='green'> Active </Badge>
+                            </Radio>
+                        </HStack>
+                    </RadioGroup>
+                    <FormHelperText>Only Active products can be requested from <Text as="strong">Mallspawn Store-Front API</Text> </FormHelperText>
+                </Box>
+                <HStack mb={8}>
+                   <Box>
+                        <FormLabel htmlFor='price'>Price*</FormLabel>
+                        <Input id='price' type="number" min="0.00" max="10000.00" step="0.01" placeholder="15.0"/>    
+                    </Box> 
+                    <Box>
+                        <FormLabel htmlFor='compareAtPrice'>Compare At Price*</FormLabel>
+                        <Input id='compareAtPrice' type="number" min="0.00" max="10000.00" step="0.01" placeholder="14.5"/>    
+                    </Box>
+                </HStack>
+
+                <VStack>
+                    <FormLabel htmlFor='price'>Images*</FormLabel>
+                    <Button p={0} w={150} h={150}>
+                        <Image src='https://cdn.shopify.com/s/files/1/0551/9563/1814/products/havit-kb487l-tkl-mechanical-keyboard.jpg?v=1618240421' borderRadius={4} alt='Dan Abramov' />
+                    </Button> 
+                    <Button p={0} w={50} h={50}>
+                        <Image src='https://cdn.shopify.com/s/files/1/0551/9563/1814/products/havit-kb487l-tkl-mechanical-keyboard.jpg?v=1618240421' borderRadius={4} alt='Dan Abramov' />
+                    </Button>
+                </VStack>
+            </FormControl>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   )
 }
-
-
 
 
 const ProductTable = (props: {Products:Product[]}) =>{
     const {Products} = props
 
-    const TableHeader = (props: {data:any}) =>{
+    const TableItem = (props: {data:any}) =>{
         const {data} = props
         return(
             <Th py={6} border="none" maxW={100} minW={100} px={0}>
@@ -129,8 +174,10 @@ const ProductTable = (props: {Products:Product[]}) =>{
         )
     }
 
+    const Headers = ["Product", "Name", "Status", "Collection", ""]
+
     return(
-        <Table minW="100%" h="50%">
+        <Table minW="100%">
             <Tbody
                 justifyContent="space-around"
             >
@@ -139,16 +186,15 @@ const ProductTable = (props: {Products:Product[]}) =>{
                 const {name, status, collection} = product
                 return(
                     <Tr as={HStack} justifyContent="space-between">
-                        <Button p={0}  w={50} h={50}>
+                        <Button p={0} w={50} h={50}>
                             <Image src='https://cdn.shopify.com/s/files/1/0551/9563/1814/products/havit-kb487l-tkl-mechanical-keyboard.jpg?v=1618240421' borderRadius={4} alt='Dan Abramov' />
                         </Button>
-                        <TableHeader data={name}/>
-                        <TableHeader data={status?
+                        <TableItem data={name}/>
+                        <TableItem data={status?
                                <Badge variant='solid' px={2} py={1} colorScheme='green'> Active </Badge>
                                : 
                                <Badge variant='solid' px={2} py={1} colorScheme='blue'> Draft </Badge>
                                }/>
-                        <TableHeader data={collection}/>
                         <Menu>
                             <MenuButton as={Button} justifyContent="center" alignItems="center">
                                 <Icon as={FiSettings}/>

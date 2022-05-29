@@ -23,6 +23,9 @@ import Account from "./cms/pages/account"
 
 // example theme
 const theme = extendTheme({
+  fonts: {
+    heading: `'Open Sans', sans-serif`,
+  },
   fontSizes: {
     xs: "0.75rem",
     sm: "0.875rem",
